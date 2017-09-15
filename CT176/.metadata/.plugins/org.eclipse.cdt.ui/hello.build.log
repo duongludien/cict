@@ -1,0 +1,7 @@
+08:34:22 **** Rebuild of configuration Debug for project hello ****
+Info: Internal Builder is used for build
+g++ -O0 -g3 -Wall -c -fmessage-length=0 -o main.o "..\\main.cpp" 
+g++ -o hello.exe main.o 
+
+08:34:29 Build Finished (took 7s.57ms)
+

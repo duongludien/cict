@@ -1,0 +1,10 @@
+
+public class SDSinhVien {
+	public static void main(String[] args) {
+		SinhVien sv;
+		sv = new SinhVien();
+		
+		sv.nhap();
+		sv.xuat();
+	}
+}

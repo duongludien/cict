@@ -1,0 +1,35 @@
+#include "aqueuelib.h"
+#include "adjacent_matrix_lib_multiple_edges.h"
+
+void breath_first_search(Graph G) {
+	Queue frontier;
+	make_null_queue(&frontier);
+	int mark[MAX_VERTEXES];
+	
+	/* Khoi tao mark, chua co dinh nao duoc xet */
+	int i;
+	for(i=1; i<=G.n; i++) {
+		mark[i] = 0;
+	}
+	
+	/* Dua 1 vao frontier, danh dau la da xet */
+	push(&frontier, 1);
+	mark[1] = 1;
+	
+	/* Vong lap chinh de duyet */
+	while(!empty(frontier)) {
+		int x = top(frontier);
+		pop(&frontier);
+		printf("Duyet %d\n", x);
+		List L;
+		make_null(&L);
+		L = neighbors(G, x);
+		for(i=1; i<=L.size; i++) {
+			int y = element_at(L, i);
+			if(mark[y] == 0) {
+				push(&frontier, y);
+				mark[y] = 1;
+			}
+		}
+	}
+}

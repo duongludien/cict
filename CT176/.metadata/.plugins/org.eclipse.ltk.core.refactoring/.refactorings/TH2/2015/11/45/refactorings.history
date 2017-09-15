@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Convert local variable &apos;Diem.Diem.nhapDiem().s&apos; in &apos;Diem.Diem.nhapDiem()&apos; to field&#x0D;&#x0A;- Original project: &apos;TH2&apos;&#x0D;&#x0A;- Original element: &apos;Diem.Diem.nhapDiem().s&apos;&#x0D;&#x0A;- Field name: &apos;s&apos;&#x0D;&#x0A;- Initialize field in method&#x0D;&#x0A;- Declared visibility: &apos;private&apos;" description="Convert local variable &apos;s&apos; to field" final="false" flags="2" id="org.eclipse.jdt.ui.promote.temp" initialize="1" input="/src&lt;Diem{Diem.java" name="s" selection="239 26" stamp="1446819997207" static="false" version="1.0" visibility="2"/>
+</session>

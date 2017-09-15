@@ -1,0 +1,6 @@
+echo "Tham so ban da truyen vao la 2 so: $1 va $2"
+echo "Tong: $1 + $2 = `expr $1 + $2`"
+echo "Hieu: $1 - $2 = `expr $1 - $2`"
+echo "Tich: $1 * $2 = `expr $1 \* $2`"
+echo "Thuong: $1 / $2 = `expr $1 / $2`"
+echo "So du: $1 % $2 = `expr $1 % $2`"

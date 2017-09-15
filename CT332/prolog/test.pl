@@ -1,0 +1,3 @@
+loop :-
+repeat,
+writeln('hello').

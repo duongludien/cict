@@ -1,0 +1,10 @@
+INDEX VERSION 1.127+D:\Dropbox\programming\tai_lieu_mon_hoc\CT176-OOP\source_code\.metadata\.plugins\org.eclipse.jdt.core
+651918004.index
+985413812.index
+1258164447.index
+1039736905.index
+995982823.index
+1650236142.index
+3566896508.index
+3078928002.index
+934574613.index

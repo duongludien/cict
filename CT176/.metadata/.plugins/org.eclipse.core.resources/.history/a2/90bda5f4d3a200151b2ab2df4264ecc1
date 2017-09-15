@@ -1,0 +1,23 @@
+import java.util.Scanner;
+
+public class SinhVien {
+	private String MSSV;
+	private String hoTen;
+	private double diemTB;
+	
+	public void nhap() {
+		Scanner s = new Scanner(System.in);
+		System.out.print("\nNhap vao ma so: ");
+		MSSV = s.nextLine();
+		System.out.print("\nNhap vao ho ten: ");
+		hoTen = s.nextLine();
+		System.out.print("\nNhap vao diem trung binh: ");
+		diemTB = s.nextDouble();
+	}
+	
+	public void xuat() {
+		System.out.print("\n+ Ma so sinh vien: " + MSSV);
+		System.out.print("\n+ Ho ten: " + hoTen);
+		System.out.print("\n+ Diem trung binh: " + diemTB);
+	}
+}

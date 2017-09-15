@@ -1,0 +1,11 @@
+200 Hai tram dong
+500 Nam tram dong
+1000 Mot nghin dong
+2000 Hai nghin dong
+5000 Nam nghin dong
+10000 Muoi nghin dong
+20000 Hai muoi nghin dong
+50000 Nam muoi nghin dong
+100000 Mot tram nghin dong
+200000 Hai tram nghin dong
+500000 Nam tram nghin dong
