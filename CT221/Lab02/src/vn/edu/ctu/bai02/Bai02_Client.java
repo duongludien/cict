@@ -17,21 +17,28 @@ public class Bai02_Client {
 
 			while(true) {
 				System.out.print("Nhap vao lenh: ");
-				String command = new Scanner(System.in).nextLine();
+				try {
+					String command = new Scanner(System.in).nextLine();
+					bw.write(command + "\n");
+					bw.flush();
 
-				bw.write(command + "\n");
-				bw.flush();
-
-				if(command.equals("exit")) break;
-				
-				String commandOnly = command.substring(0, command.indexOf(' '));
-				switch(commandOnly) {
-				case "list":
-					listFile(br);
-					break;
-				default:
-					continue;
+					if(command.equals("exit")) break;
+					
+					String commandOnly = command.substring(0, command.indexOf(' '));
+					switch(commandOnly) {
+					case "list":
+						listFile(br);
+						break;
+					default:
+						System.out.println("Khong tim thay lenh nay!");
+						continue;
+					}
 				}
+				catch(StringIndexOutOfBoundsException e) {
+					System.out.println("Loi: " + e);
+				}
+
+				
 			}
 
 			s.close();

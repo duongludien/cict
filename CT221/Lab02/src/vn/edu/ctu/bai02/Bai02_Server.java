@@ -18,15 +18,20 @@ class ListFile extends Thread {
 			BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(os));
 			try {
 				while(true) {
-					String command = br.readLine();
-	
-					if(command.equals("exit")) break;
-					
-					String commandOnly = command.substring(0, command.indexOf(' '));
-					switch(commandOnly) {
-					case "list":
-						String path = command.substring(command.indexOf(' ') + 1);
-						listFileAndReturn(path, bw);
+					try {
+						String command = br.readLine();
+						
+						if(command.equals("exit")) break;
+						
+						String commandOnly = command.substring(0, command.indexOf(' '));
+						switch(commandOnly) {
+						case "list":
+							String path = command.substring(command.indexOf(' ') + 1);
+							listFileAndReturn(path, bw);
+						}
+					}
+					catch(StringIndexOutOfBoundsException e) {
+						System.out.println("Loi: " + e);
 					}
 					
 				}
