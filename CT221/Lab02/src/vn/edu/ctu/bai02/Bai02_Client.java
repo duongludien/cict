@@ -7,7 +7,9 @@ import java.net.*;
 public class Bai02_Client {
 	public static void main(String[] args) {
 		try {
-			Socket s = new Socket("localhost", 2018);
+			System.out.print("Nhap vao dia chi server: ");
+			String svr = new Scanner(System.in).nextLine();
+			Socket s = new Socket(svr, 2018);
 			InputStream is = s.getInputStream();
 			OutputStream os = s.getOutputStream();
 			BufferedReader br = new BufferedReader(new InputStreamReader(is));

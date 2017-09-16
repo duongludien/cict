@@ -35,7 +35,7 @@ class ListFile extends Thread {
 				System.out.println("Da ngat ket noi tu " + ip);
 			}
 			catch(NullPointerException e) {
-				System.out.println("Xay ra loi tu phia client");
+				System.out.println("Xay ra loi tu phia client " + s.getInetAddress());
 			}
 		}
 		catch(IOException e) {
