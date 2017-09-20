@@ -1,0 +1,61 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	font-family: Georgia, Arial, sans-serif;
+}
+
+div#main {
+	width: 90%;
+	margin: auto;
+	background-color: white;
+}
+
+div#nav {
+	width: 15%;
+	float: left;
+	border: solid 1px;
+	background-color: white;
+}
+
+div#nav p {
+	padding-left: 10px;
+	padding-right: 10px;
+	font-weight: bold;
+	line-height: 30px;
+}
+
+div#nav p a {
+	text-decoration: none;
+}
+
+div#content {
+	width: 80%;
+	float: right;
+	border: solid 1px;
+	border-radius: 12px;
+	background-color: white;
+}
+
+div#content h1 {
+	padding-left: 20px;
+}
+
+div#title {
+	width: 100%;
+}
+
+div.info {
+	width: 95%;
+	padding-top: 10px;
+	padding-left: 20px;
+}
+
+div#footer {
+	width: 80%;
+	margin: auto;
+	text-align: center;
+	float: right;
+	border: solid 1px;
+	margin-top: 10px;
+	background-color: #a7aaaf;
+}
