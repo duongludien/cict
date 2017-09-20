@@ -10,4 +10,5 @@ All source code which I wrote when I was a student in Can Tho University.
 <li>CT202 - Machine Learning (Lecturer: Tran Nguyen Minh Thu)</li>
 <li>CT221 - Network Programming (Lecturer: Nguyen Cong Huy)</li>
 <li>CT332 - Artificial Intelligence (Lecturer: Tran Nguyen Minh Thu)</li>
+<li>CT428 - Web Programming (Lecturer: Do Thanh Nghi)</li>
 </ol>
