@@ -1,0 +1,25 @@
+body {
+	font-family: Georgia, Arial, sans-serif;
+	font-size: 16px;
+}
+
+div#container {
+	margin-top: 10px;
+}
+
+div#content {
+	margin-left: 10px;
+}
+
+div#footer {
+	background-color: #93969b;
+	text-align: center;
+	margin-top: 10px;
+	padding-top: 10px;
+}
+
+div.info {
+	width: 95%;
+	padding-top: 10px;
+	padding-left: 20px;
+}

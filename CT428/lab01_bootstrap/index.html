@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Dương Lữ Điện</title>
+	<meta charset="utf-8" />
+	<meta name="description" content="Website cá nhân của Dương Lữ Điện" />
+	<meta name="keywords" content="Dương Lữ Điện, Lu-Dien Duong, học lập trình, Duong Lu Dien Training" />
+
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="bootstrap/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="bootstrap/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="bootstrap/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="style.css">
+
+	<script type="text/javascript">
+		function showtime() {
+			var timer = new Date();
+			var hour = timer.getHours();
+			var minute = timer.getMinutes();
+			var second = timer.getSeconds();
+			var date = timer.getDate();
+			var month = timer.getMonth();
+			var year = timer.getFullYear();
+			document.getElementById("clock").innerHTML=('0' + hour).slice(-2) + ":" + ('0' + minute).slice(-2) + ":" + ('0' + second).slice(-2);
+			document.getElementById("date").innerHTML=date + " tháng " + month + " năm " + year;
+			setTimeout(showtime, 1000);
+		}
+	</script>
+</head>
+<body onload="showtime();">
+	<div class="container-fluid" id="container">
+		<div class="row">
+			<nav class="col-md-2">
+				<ul class="nav nav-pills nav-stacked" data-offset-top="205">
+			        <li class="active"><a href="index.html">Trang chủ</a></li><br />
+					<li><a href="#">Lịch</a></li><br />
+					<li><a href="#">Khoá học</a></li><br />
+					<li><a href="http://hoclaptrinh.duongludien.com" target="_blank">Học lập trình</a></li><br />
+					<li><a href="http://training.duongludien.com" target="_blank">E-learning</a></li><br />
+					<li><a href="https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxkdW9uZ2x1ZGllbnxneDo1MmRlYWJjMzgzNjRkYTg2" target="_blank">Download CV</a></li>
+		      	</ul>
+			</nav>
+			<div class="col-md-9" id="content">
+				<div id="title"><h1>Trang chủ</h1></div>
+				<!-- Personal Information -->
+				<table align="center" class="table">
+					<tr>
+						<td>
+							<img src="images/dldien.jpg" width="200px" height="200px" alt="Ảnh đại diện" />
+						</td>
+						<td>
+							<h2 style="color: red">DƯƠNG LỮ ĐIỆN</h2>
+							<p style="color: blue">
+								Khoa CNTT&amp;TT - Đại học Cần Thơ<br />
+								Khu II, đường 3/2, Q. Ninh Kiều, TP. Cần Thơ
+							</p>
+							
+							<table style="text-align: left;">
+								<tr>
+									<th>Website:</th>
+									<td>&nbsp;&nbsp;www.duongludien.com</td>
+								</tr>
+								<tr>
+									<th>Email:</th>
+									<td>&nbsp;&nbsp;duongludien@gm*il.com</td>
+								</tr>
+								<tr>
+									<th>ĐT:</th>
+									<td>&nbsp;&nbsp;0125 312 04**</td>
+								</tr>
+							</table>
+						</td>
+					</tr>
+				</table>
+
+				<div class="info">
+					<h2>Phương châm sống</h2>
+					Tôi có một khát vọng cải cách nền giáo dục của Việt Nam để giúp các bạn thanh niên nhận ra ước mơ và khả năng của họ. 
+				</div>
+				
+				<div class="info">
+					<h2>Học tập</h2>
+					<ul>
+						<li>2014 - Hiện tại: Sinh viên ngành Công nghệ thông tin, Đại học Cần Thơ.</li>
+						<li>2012 - 2014: THPT Gò Quao, Kiên Giang.</li>
+					</ul>
+				</div>
+
+				<div class="info">
+					<h2>Kinh nghiệm làm việc</h2>
+					<ul>
+						<li>
+							<strong>Duong Lu Dien Training (2015 - 2017)</strong><br />
+							Tôi thành lập một tổ chức không chính thức, gọi là Duong Lu Dien Training. Tôi tổ chức các khoá học online và offline để giúp cho các bạn tôi học lập trình. Tôi cũng tham gia viết blogs và quay các video hướng dẫn về lập trình.
+						</li>
+					</ul>
+				</div>
+				
+				<div class="info">
+					<h2>Sở thích</h2>
+					<ul>
+						<li>Máy học</li>
+						<li>Toán học</li>
+						<li>Tâm lý giáo dục</li>
+						<li>Triết học Phật giáo</li>
+					</ul>
+				</div>
+
+				<div class="info">
+					<h2>Kỹ năng chuyên môn</h2>
+					<ul>
+						<li>Hệ điều hành: GNU/Linux, Windows</li>
+						<li>Ngôn ngữ lập trình: C, Java</li>
+						<li>Cấu trúc dữ liệu và giải thuật</li>
+						<li>Cơ sở dữ liệu: SQL</li>
+						<li>Ngôn ngữ: Tiếng Việt, Tiếng Anh</li>
+						<li>Trình bày</li>
+						<li>Giảng dạy</li>
+					</ul>
+				</div>
+
+				<div class="info">
+					<h2>Kinh nghiệm giảng dạy</h2>
+					<ul>
+						<li>Lập trình căn bản (ngôn ngữ C)</li>
+						<li>Cấu trúc dữ liệu</li>
+						<li>Lập trình hướng đối tượng (Java)</li>
+					</ul>
+				</div>
+
+				<div class="info">
+					<h2>Khen thưởng và tài trợ</h2>
+					<ul>
+						<li>Sinh viên giỏi năm học 2015 - 2016</li>
+						<li>Trao đổi sinh viên: CTU – PSU tại Hat Yai, Thái Lan (2016): <a href="http://ict.sci.psu.ac.th/th/2016/09/20/college-of-ict-can-tho-vietnam/" target="_blank">Link</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12" id="footer">
+				<p>Bây giờ là <span id="clock"></span>. Ngày <span id="date"></span></p>
+				<p>Copyright &copy; 2017 Dương Lữ Điện. All rights reserved.</p>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
