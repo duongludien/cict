@@ -10,30 +10,39 @@ public class Bai02_Server {
 
 	public static void main(String[] args) {
 		try {
-			DatagramSocket ds = new DatagramSocket(2017);
-			System.out.println("Da khoi tao thanh cong server!");
+			// Initialize UDP server
+			DatagramSocket ds = new DatagramSocket(2018);
+			System.out.println("Khoi tao server thanh cong!");
 			
-			byte buf[] = new byte[60000];
-			DatagramPacket receivedPacket = new DatagramPacket(buf, 60000);
+			// Create packet to receive data from client
+			byte receivedBuffer[] = new byte[60000];
+			DatagramPacket receivedPacket = new DatagramPacket(receivedBuffer, 60000);
 			
 			while(true) {
 				try {
+					// Receive packet from client
 					ds.receive(receivedPacket);
+					System.out.println("Yeu cau tu: " + receivedPacket.getAddress() + ":" + receivedPacket.getPort());
 					
-					String cmd = new String(receivedPacket.getData());
-					String path = cmd.substring(cmd.lastIndexOf(' ') + 1);
+					// Process
+					String request = new String(receivedPacket.getData(), 0, receivedPacket.getLength());
+					System.out.println("request = " + request);
+					String command = request.substring(0, request.indexOf(' ')).trim().toLowerCase();
+					System.out.println("command = " + command);
+					String path = request.substring(request.indexOf(' ') + 1).trim();
+					System.out.println("path = " + path);
 					
-					System.out.println(path);
-					
-					FileInputStream fis = new FileInputStream(path);
-					int len = fis.available();
-					byte buffer[] = new byte[len];
-					fis.read(buffer);
-					fis.close();
-					
-					DatagramPacket sentPacket = new DatagramPacket(buffer, len, receivedPacket.getAddress(), receivedPacket.getPort());
-					
-					ds.send(sentPacket);
+					switch(command) {
+					case "read":
+						FileInputStream fis = new FileInputStream(path);
+						byte sentBuffer[] = new byte[fis.available()];
+						fis.read(sentBuffer);
+						
+						DatagramPacket sentPacket = new DatagramPacket(sentBuffer, sentBuffer.length, receivedPacket.getAddress(), receivedPacket.getPort());
+						ds.send(sentPacket);
+						System.out.println("Gui thanh cong den: " + receivedPacket.getAddress() + ":" + receivedPacket.getPort());
+						fis.close();
+					}
 				} catch (IOException e) {
 					e.printStackTrace();
 				}

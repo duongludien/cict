@@ -12,14 +12,17 @@ import java.util.Scanner;
 public class Bai02_Client {
 
 	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		
 		try {
 			DatagramSocket ds = new DatagramSocket();
 			
 			System.out.print("Nhap vao lenh: ");
-			String cmd = new Scanner(System.in).nextLine();
+			String cmd = sc.nextLine();
 			
 			try {
-				DatagramPacket sentPacket = new DatagramPacket(cmd.getBytes(), cmd.length(), InetAddress.getByName("localhost"), 2017);
+				DatagramPacket sentPacket = new DatagramPacket(cmd.getBytes(), cmd.length(), InetAddress.getByName("localhost"), 2018);
+				
 				try {
 					ds.send(sentPacket);
 					
@@ -28,9 +31,14 @@ public class Bai02_Client {
 					
 					ds.receive(receivedPacket);
 					
-					FileOutputStream fos = new FileOutputStream("output.txt");
-					fos.write(receivedPacket.getData());
+					System.out.print("Nhap ten file can luu: ");
+					String filename = sc.nextLine();
+					
+					FileOutputStream fos = new FileOutputStream(filename);
+					byte b[] = receivedPacket.getData();
+					fos.write(b);
 					fos.close();
+					System.out.println("Ghi file thanh cong!");
 				} catch (IOException e) {
 					e.printStackTrace();
 				}
