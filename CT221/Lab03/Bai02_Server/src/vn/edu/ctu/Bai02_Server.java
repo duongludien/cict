@@ -1,6 +1,7 @@
 package vn.edu.ctu;
 
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
@@ -34,14 +35,29 @@ public class Bai02_Server {
 					
 					switch(command) {
 					case "read":
-						FileInputStream fis = new FileInputStream(path);
-						byte sentBuffer[] = new byte[fis.available()];
-						fis.read(sentBuffer);
-						
-						DatagramPacket sentPacket = new DatagramPacket(sentBuffer, sentBuffer.length, receivedPacket.getAddress(), receivedPacket.getPort());
-						ds.send(sentPacket);
-						System.out.println("Gui thanh cong den: " + receivedPacket.getAddress() + ":" + receivedPacket.getPort());
-						fis.close();
+						try {
+							FileInputStream fis = new FileInputStream(path);
+							
+							byte sentBuffer1[] = new byte[1];
+							sentBuffer1[0] = 1;
+							DatagramPacket sentPacket1 = new DatagramPacket(sentBuffer1, 1, receivedPacket.getAddress(), receivedPacket.getPort());
+							ds.send(sentPacket1);
+							
+							byte sentBuffer2[] = new byte[fis.available()];
+							fis.read(sentBuffer2);
+							DatagramPacket sentPacket2 = new DatagramPacket(sentBuffer2, sentBuffer2.length, receivedPacket.getAddress(), receivedPacket.getPort());
+							ds.send(sentPacket2);
+							System.out.println("Gui thanh cong den: " + receivedPacket.getAddress() + ":" + receivedPacket.getPort());
+							fis.close();
+						}
+						catch(FileNotFoundException e) {
+							e.printStackTrace();
+							byte sentBuffer1[] = new byte[1];
+							sentBuffer1[0] = 0;
+							DatagramPacket sentPacket1 = new DatagramPacket(sentBuffer1, 1, receivedPacket.getAddress(), receivedPacket.getPort());
+							ds.send(sentPacket1);
+						}
+						break;
 					}
 				} catch (IOException e) {
 					e.printStackTrace();
