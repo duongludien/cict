@@ -11,7 +11,7 @@ public class SignInController {
 	}
 	
 	public boolean check() {
-		if(username.equals("user") && password.equals("user"))
+		if((username.equals("user1") && password.equals("user1")) || (username.equals("user2") && password.equals("user2")))
 			return true;
 		return false;
 	}

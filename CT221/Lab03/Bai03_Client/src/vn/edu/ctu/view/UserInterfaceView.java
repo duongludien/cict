@@ -3,6 +3,12 @@ package vn.edu.ctu.view;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.net.Socket;
 
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -10,6 +16,8 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+
+import vn.edu.ctu.controller.ShowMessagesController;
 
 
 public class UserInterfaceView extends JFrame {
@@ -19,13 +27,17 @@ public class UserInterfaceView extends JFrame {
 	private JTextArea textAreaTyping;
 	private JButton buttonSend;
 	private String username;
+	private Socket s;
 	
-	public UserInterfaceView(String username) {
+	public UserInterfaceView(String username, Socket s) {
 		super();
 		this.username = username;
-		this.setTitle("Chat App - " + username);
+		this.s = s;
+		this.setTitle("Chat App - " + this.username);
 		addControls();
 		addEvents();
+		ShowMessagesController smc = new ShowMessagesController(s, textAreaMessages);
+		smc.start();
 	}
 
 	public void showWindow() {
@@ -40,7 +52,30 @@ public class UserInterfaceView extends JFrame {
 	}
 
 	private void addEvents() {
+		buttonSend.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				sendMessage();
+			}
+		});
+	}
+
+	protected void sendMessage() {
+		String message = textAreaTyping.getText();
 		
+		if(message.equals(""))
+			return;
+		else {
+			try {
+				BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(s.getOutputStream()));
+				bw.write(message);
+				bw.newLine();
+				bw.flush();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
 	}
 
 	private void addControls() {

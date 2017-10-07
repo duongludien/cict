@@ -57,7 +57,7 @@ public class SignInView extends JFrame {
 				Socket s = sic.check();
 				
 				if(s != null) {
-					UserInterfaceView ui = new UserInterfaceView(username);
+					UserInterfaceView ui = new UserInterfaceView(username, s);
 					ui.showWindow();
 					disposeWindow();
 				}

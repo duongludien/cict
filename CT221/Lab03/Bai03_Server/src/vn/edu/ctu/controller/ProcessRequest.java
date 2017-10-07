@@ -29,10 +29,17 @@ public class ProcessRequest extends Thread {
 			case "signin":
 				processSignIn(str[1], str[2]);
 				break;
+			case "send":
+				processSend();
+				break;
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	private void processSend() {
+		
 	}
 
 	private void processSignIn(String username, String password) {
