@@ -1,0 +1,128 @@
+-- use db
+use db_s6;
+
+
+-- Create table
+CREATE TABLE dinh_dien_s (
+sid varchar(3) PRIMARY KEY,
+sname text NOT NULL,
+status smallint,
+city text
+);
+
+CREATE TABLE dinh_dien_p (
+pid varchar(3) UNIQUE NOT NULL,
+pname text NOT NULL,
+color text,
+weight smallint,
+city text
+);
+
+CREATE TABLE dinh_dien_sp (
+sid varchar(3),
+pid varchar(3),
+qty integer NOT NULL CHECK (qty > 0),
+	CONSTRAINT sp_pkey PRIMARY KEY(sid, pid)
+);
+
+CREATE TABLE dinh_dien_films (
+code char(5) PRIMARY KEY,
+title text NOT NULL,
+date_prod date DEFAULT '2000/01/01'
+);
+
+
+-- Alter table
+ALTER TABLE dinh_dien_films ADD COLUMN nb int;
+ALTER TABLE dinh_dien_films DROP COLUMN nb;
+ALTER TABLE dinh_dien_films CHANGE title title varchar(30);
+
+
+-- Insert data
+INSERT INTO dinh_dien_s VALUES('S01', 'Smith', 20, 'London');
+INSERT INTO dinh_dien_s VALUES('S02', 'Jones', 10, 'Paris');
+INSERT INTO dinh_dien_s VALUES('S03', 'Blacke', 30, 'Paris');
+
+INSERT INTO dinh_dien_p VALUES('P01', 'Nut', 'red', 12, 'London');
+INSERT INTO dinh_dien_p VALUES('P02', 'Bolt', 'green', 17, 'Paris');
+INSERT INTO dinh_dien_p VALUES('P03', 'Screw', 'blue', 17, 'Roma');
+INSERT INTO dinh_dien_p VALUES('P04', 'Screw', 'red', 14, 'London');
+
+INSERT INTO dinh_dien_sp VALUES ('S01', 'P01', 300);
+INSERT INTO dinh_dien_sp VALUES ('S01', 'P02', 200);
+INSERT INTO dinh_dien_sp VALUES ('S01', 'P03', 400);
+INSERT INTO dinh_dien_sp VALUES ('S02', 'P01', 300);
+INSERT INTO dinh_dien_sp VALUES ('S02', 'P02', 400);
+INSERT INTO dinh_dien_sp VALUES ('S03', 'P02', 200);
+
+INSERT INTO dinh_dien_films VALUES ('00001', 'Anh Hung Xa Dieu', '1990/12/07');
+INSERT INTO dinh_dien_films VALUES ('00002', 'Than Dieu Dai Hiep', '1991/07/22');
+INSERT INTO dinh_dien_films VALUES ('00013', 'Vo My Nuong','1999/10/15');
+
+
+-- Delete data
+DELETE FROM dinh_dien_films;
+DELETE FROM dinh_dien_films WHERE code = '00013';
+
+
+-- Update data
+UPDATE dinh_dien_films SET title = 'Co Gai Do Long' WHERE code = '00001';
+
+
+-- Select
+-- Truy van bieu thuc
+SELECT 3*3-4, sqrt(16), round(2.6), abs(-2);
+SELECT current_date(), rand(), ln(2.7);
+
+-- Truy van tren bang dinh_dien_s, dinh_dien_p, dinh_dien_sp
+SELECT * FROM dinh_dien_s;
+SELECT * FROM dinh_dien_p;
+SELECT * FROM dinh_dien_sp;
+SELECT * FROM dinh_dien_sp limit 3;
+SELECT * FROM dinh_dien_sp limit 3 offset 2;
+SELECT sid FROM dinh_dien_s WHERE city='Paris';
+SELECT *  FROM dinh_dien_s WHERE city LIKE 'P%';
+SELECT DISTINCT pid FROM dinh_dien_sp;
+SELECT sid FROM  dinh_dien_s WHERE city='Paris' AND status > 20;
+SELECT sid, status FROM dinh_dien_s WHERE city='Paris' ORDER BY status DESC;
+SELECT  sname FROM dinh_dien_s WHERE sid IN (SELECT sid FROM dinh_dien_sp WHERE pid='P02');
+SELECT pid FROM dinh_dien_sp WHERE sid='S01' UNION SELECT pid FROM dinh_dien_p WHERE weight>13;
+SELECT COUNT(sid) FROM dinh_dien_sp WHERE pid='P02';
+SELECT SUM(qty) FROM dinh_dien_sp WHERE pid='P02';
+SELECT pid, COUNT(sid) FROM dinh_dien_sp GROUP BY pid;
+SELECT MAX(qty), AVG(qty) FROM dinh_dien_sp;
+SELECT  pid, SUM(qty) FROM dinh_dien_sp GROUP BY pid HAVING pid <> 'P02';
+
+
+-- Create table dinh_dien_t1, dinh_dien_t2
+CREATE TABLE dinh_dien_t1(
+id varchar(10) PRIMARY KEY,
+name varchar(30)
+);
+
+CREATE TABLE dinh_dien_t2(
+code varchar(10) PRIMARY KEY,
+cname varchar(30)
+);
+
+
+-- Insert data dinh_dien_t1, dinh_dien_t2
+INSERT INTO dinh_dien_t1 VALUES('1','Peter');
+INSERT INTO dinh_dien_t1 VALUES('2','Bob');
+INSERT INTO dinh_dien_t1 VALUES('3','Joe');
+
+INSERT INTO dinh_dien_t2 VALUES('5','Laval');
+INSERT INTO dinh_dien_t2 VALUES('2','Paris');
+INSERT INTO dinh_dien_t2 VALUES('3','Nantes');
+
+
+-- Check
+SELECT * FROM dinh_dien_t1;
+SELECT * FROM dinh_dien_t2;
+
+
+-- Join
+SELECT * FROM dinh_dien_t1 CROSS JOIN dinh_dien_t2;
+SELECT * FROM dinh_dien_t1 INNER JOIN dinh_dien_t2 ON dinh_dien_t1.id=dinh_dien_t2.code;
+SELECT * FROM dinh_dien_t1 LEFT JOIN dinh_dien_t2 ON dinh_dien_t1.id=dinh_dien_t2.code;
+SELECT * FROM dinh_dien_t1 RIGHT JOIN dinh_dien_t2 ON dinh_dien_t1.id=dinh_dien_t2.code;

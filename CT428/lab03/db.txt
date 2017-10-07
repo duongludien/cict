@@ -1,0 +1,26 @@
+-- DB host:	localhost
+-- DB name:	db_s6
+-- User:	user_s6
+-- Password:	puser_s6
+
+USE db_s6;
+
+CREATE TABLE dinh_dien_donvi (
+	madv int(3) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
+	donvi varchar(30) NOT NULL,
+);
+
+CREATE TABLE dinh_dien_chucvu (
+	macv int(3) UNSIGNED ZEROFILL auto_increment PRIMARY KEY ,
+	chucvu varchar(30) NOT NULL
+);
+
+CREATE TABLE dinh_dien_nhanvien (
+	manv int(5) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
+	hoten varchar(30) NOT NULL,
+	namsinh date,
+	gioitinh varchar(3),
+	madv int(3) UNSIGNED ZEROFILL REFERENCES dinh_dien_donvi(madv),
+	macv int(3) UNSIGNED ZEROFILL REFERENCES dinh_dien_chucvu(macv),
+	luong int check(luong > 1000)
+);
