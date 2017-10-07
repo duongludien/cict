@@ -1,14 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hiển Thị Chức Vụ</title>
+</head>
+
+<body>
+
+	<h3><a href="them_chucvu.php">Thêm mới</a></h3>
+
 <?php
-	$dbhost = "localhost";
-	$dbuser = "user_s6";
-	$dbpass = "puser_s6";
-	$dbname = "db_s6";
 
-	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-	if ($conn->connect_error) {
-		die("Loi ket noi: " . $conn->connect_error);
-	}
+	include "dbconnect.php";
 
 	$sql = "SELECT * FROM dinh_dien_chucvu;";
 	$result = $conn->query($sql);
@@ -27,3 +30,7 @@
 
 	$conn->close();
 ?>
+
+	<h3><a href="main.php">Trở về</a></h3>
+</body>
+</html>

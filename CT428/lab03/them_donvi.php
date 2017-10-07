@@ -1,42 +1,30 @@
-<?php
-	$dbhost = "localhost";
-	$dbuser = "user_s6";
-	$dbpass = "puser_s6";
-	$dbname = "db_s6";
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Thêm Đơn Vị</title>
+	<?php
+		include "dbconnect.php";
 
-	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
+		if(isset($_POST['donvi'])) {
+			$sql = "INSERT INTO dinh_dien_donvi(donvi) VALUES('" . $_POST['donvi'] . "');";
 
-	if ($conn->connect_error) {
-		die("Loi ket noi: " . $conn->connect_error);
-	}
-
-	if(!empty($_POST[donvi])) {
-		$sql = "INSERT INTO dinh_dien_donvi(donvi) VALUES('" . $_POST['donvi'] . "');";
-
-		if ($conn->query($sql)) {
-			echo "Them thanh cong!";
-		} else {
-			echo "Loi: " . $sql . "" . $conn->error;
+			if ($conn->query($sql)) {
+				echo "Them thanh cong!";
+				echo '<meta http-equiv="REFRESH" content="0;URL=hienthi_donvi.php" />';
+			} else {
+				echo "Loi: " . $sql . "" . $conn->error;
+			}
 		}
-	}
-	else {
-		echo "Loi: Ten don vi rong. Xin kiem tra lai!";
-	}
+	?>
+</head>
 
-	$sql = "SELECT * FROM dinh_dien_donvi;";
-	$result = $conn->query($sql);
-
-	if($result->num_rows > 0) {
-		echo "<table border=1>";
-		echo "<tr><th>Ma don vi</th><th>Ten don vi</th></tr>";
-		while ($row = $result->fetch_assoc()) {
-			echo "<tr>";
-			echo "<td>". $row['madv'] ."</td>";
-			echo "<td>". $row['donvi'] ."</td>";
-			echo "</tr>";
-		}
-		echo "</table>";
-	}
-
-	$conn->close();
-?>
+<body>
+	<h1>Them don vi</h1>
+	<form action="" method="POST">
+		Ten don vi: <input type="text" name="donvi" required="true">
+		<input type="submit" name="submit" value="Them"> <br>
+		<input type="button" name="back" value="Tro ve" onClick="window.location='hienthi_donvi.php'">
+	</form>
+</body>
+</html>

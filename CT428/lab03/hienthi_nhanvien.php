@@ -1,31 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Hiển Thị Nhân Viên</title>
+</head>
+
+<body>
+
+	<h3><a href="them_nhanvien.php">Thêm mới</a></h3>
+	
 <?php
-	$dbhost = "localhost";
-	$dbuser = "user_s6";
-	$dbpass = "puser_s6";
-	$dbname = "db_s6";
-
-	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-	if ($conn->connect_error) {
-		die("Loi ket noi: " . $conn->connect_error);
-	}
-
-	// $sql = "INSERT INTO dinh_dien_nhanvien(hoten, namsinh, gioitinh, madv, macv, luong) VALUES(" . 
-	// "'" . $_POST['hoten'] . "', " .
-	// "'" . $_POST['namsinh'] . "', " .
-	// "'" . $_POST['gioitinh'] . "', " .
-	// $_POST['madv'] . ", " .
-	// $_POST['macv'] . ", " .
-	// $_POST['luong'] .
-	// ");";
-
-	// echo $sql;
-
-	// if ($conn->query($sql)) {
-	// 	echo "Them thanh cong!";
-	// } else {
-	// 	echo "Loi: " . $sql . "" . $conn->error;
-	// }
+	
+	include "dbconnect.php";
 
 	$sql = "SELECT nv.manv, nv.hoten, nv.namsinh, nv.gioitinh, dv.donvi, cv.chucvu, nv.luong " . "FROM dinh_dien_nhanvien AS nv, dinh_dien_donvi AS dv, dinh_dien_chucvu AS cv " . "WHERE nv.madv = dv.madv AND nv.macv = cv.macv;";
 	
@@ -58,3 +44,7 @@
 
 	$conn->close();
 ?>
+
+	<h3><a href="main.php">Trở về</a></h3>
+</body>
+</html>

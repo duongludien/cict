@@ -1,25 +1,38 @@
-<?php
-	$dbhost = "localhost";
-	$dbuser = "user_s6";
-	$dbpass = "puser_s6";
-	$dbname = "db_s6";
-
-	$conn = new mysqli($dbhost, $dbuser, $dbpass, $dbname);
-
-	if ($conn->connect_error) {
-		die("Loi ket noi: " . $conn->connect_error);
-	}
-?>
 
 <!DOCTYPE html>
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Them nhan vien</title>
+	<title>Thêm Nhân Viên</title>
+	<?php
+		include "dbconnect.php";
+
+		if(isset($_POST['hoten'])){
+
+			$sql = "INSERT INTO dinh_dien_nhanvien(hoten, namsinh, gioitinh, madv, macv, luong) VALUES(" . 
+				"'" . $_POST['hoten'] . "', " .
+				"'" . $_POST['namsinh'] . "', " .
+				"'" . $_POST['gioitinh'] . "', " .
+				$_POST['madv'] . ", " .
+				$_POST['macv'] . ", " .
+				$_POST['luong'] .
+				");";
+
+				// echo $sql;
+
+				if ($conn->query($sql)) {
+					echo "Them thanh cong!";
+					echo '<meta http-equiv="REFRESH" content="0;URL=hienthi_nhanvien.php" />';
+				} else {
+					echo "Loi: " . $sql . "" . $conn->error;
+				}
+		}
+	
+	?>
 </head>
 
 <body>
-	<form action="them_nhanvien_xuly.php" method="POST">
+	<form action="" method="POST">
 		<table>
 			<tr>
 				<td colspan="2"><h1>Them nhan vien</h1></td>
@@ -75,6 +88,7 @@
 				<td colspan="2" align="center">
 					<input name="submit" value="Them" type="submit">
 					<input type="reset" name="reset" value="Nhap lai">
+					<input type="button" name="back" value="Tro ve" onClick="window.location='hienthi_nhanvien.php'">
 				</td>
 			</tr>
 		</table>
