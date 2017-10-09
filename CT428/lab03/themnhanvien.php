@@ -44,6 +44,8 @@
 </head>
 
 <body>
+	<h3><a href="buoi3.php">Trở lại trang chính</a></h3>
+	<hr />
 	<form action="" method="POST">
 		<table>
 			<tr>

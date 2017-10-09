@@ -34,6 +34,8 @@
 </head>
 
 <body>
+	<h3><a href="buoi3.php">Trở lại trang chính</a></h3>
+	<hr />
 	<h1>Thêm đơn vị</h1>
 	<form action="themdonvi.php" method="POST">
 		Tên đơn vị: <input type="text" name="donvi" required="true">

@@ -33,6 +33,8 @@
 </head>
 
 <body>
+	<h3><a href="buoi3.php">Trở lại trang chính</a></h3>
+	<hr />
 	<h1>Thêm chức vụ</h1>
 	<form action="themchucvu.php" method="POST">
 		Tên chức vụ: <input type="text" name="chucvu" required="true">
