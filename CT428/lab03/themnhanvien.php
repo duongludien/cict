@@ -32,6 +32,15 @@
 	<style>
 		body {font-family: sans-serif;}
 	</style>
+
+	<script>
+		function delete_field(value) {
+			check = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
+			if(check == true) {
+				window.location = "xoanhanvien.php?manv=" + value;
+			}
+		}
+	</script>
 </head>
 
 <body>
@@ -114,6 +123,7 @@
 			echo "<th>DON VI</th>";
 			echo "<th>CHUC VU</th>";
 			echo "<th>LUONG (Ngan VND)</th>";
+			echo "<th>Xóa</th>";
 			echo "<tr>";
 			while ($row = $result->fetch_assoc()) {
 				echo "<tr>";
@@ -124,6 +134,7 @@
 				echo "<td>". $row['donvi'] ."</td>";
 				echo "<td>". $row['chucvu'] ."</td>";
 				echo "<td>". $row['luong'] ."</td>";
+				echo "<td align='center'><input type='image' src='delete.png' width='16px' onclick='delete_field(this.value);' value='". $row['manv'] ."'></td>";
 				echo "</tr>";
 			}
 			echo "</table>";

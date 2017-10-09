@@ -22,11 +22,20 @@
 	<style>
 		body {font-family: sans-serif;}
 	</style>
+
+	<script>
+		function delete_field(value) {
+			check = confirm("Bạn có chắc chắn muốn xóa dòng này không?");
+			if(check == true) {
+				window.location = "xoadonvi.php?madv=" + value;
+			}
+		}
+	</script>
 </head>
 
 <body>
 	<h1>Thêm đơn vị</h1>
-	<form action="" method="POST">
+	<form action="themdonvi.php" method="POST">
 		Tên đơn vị: <input type="text" name="donvi" required="true">
 		<input type="submit" name="submit" value="Thêm"> <br>
 	</form>
@@ -40,11 +49,12 @@
 
 		if($result->num_rows > 0) {
 			echo "<table border='1' cellspacing='0' cellpadding='1'>";
-			echo "<tr><th>Mã đơn vị</th><th>Tên đơn vị</th></tr>";
+			echo "<tr><th>Mã đơn vị</th><th>Tên đơn vị</th><th>Xóa</th></tr>";
 			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
 				echo "<td>". $row['madv'] ."</td>";
 				echo "<td>". $row['donvi'] ."</td>";
+				echo "<td align='center'><input type='image' src='delete.png' width='16px' onclick='delete_field(this.value);' value='". $row['madv'] ."'></td>";
 				echo "</tr>";
 			}
 			echo "</table>";
