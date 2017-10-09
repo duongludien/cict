@@ -6,6 +6,7 @@
 	<?php
 		include "dbconnect.php";
 
+		// Insert data into database
 		if(isset($_POST['donvi'])) {
 			$sql = "INSERT INTO dinh_dien_donvi(donvi) VALUES('" . $_POST['donvi'] . "');";
 
@@ -21,6 +22,16 @@
 	<style>
 		body {font-family: sans-serif;}
 	</style>
+
+	<script>
+		function remove() {
+			result = confirm("Bạn có thật sự muốn xóa trường dữ liệu này không?");
+			alert(result == true);
+			//if(result == true) {
+			//	this.getElementById('remove').submit();
+			//}
+		}
+	</script>
 </head>
 
 <body>
@@ -39,8 +50,8 @@
 
 		if($result->num_rows > 0) {
 			echo "<table border='1' cellspacing='0' cellpadding='1'>";
-			echo "<tr><th>Ma don vi</th><th>Ten don vi</th></tr>";
-			while ($row = $result->fetch_assoc()) {
+			echo "<tr><th>Mã đơn vị</th><th>Tên đơn vị</th></tr>";
+			while($row = $result->fetch_assoc()) {
 				echo "<tr>";
 				echo "<td>". $row['madv'] ."</td>";
 				echo "<td>". $row['donvi'] ."</td>";
