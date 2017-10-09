@@ -22,16 +22,6 @@
 	<style>
 		body {font-family: sans-serif;}
 	</style>
-
-	<script>
-		function remove() {
-			result = confirm("Bạn có thật sự muốn xóa trường dữ liệu này không?");
-			alert(result == true);
-			//if(result == true) {
-			//	this.getElementById('remove').submit();
-			//}
-		}
-	</script>
 </head>
 
 <body>
