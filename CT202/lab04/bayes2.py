@@ -8,7 +8,7 @@ Created on Wed Oct 11 08:10:07 2017
 
 # Load data from sklearn library
 from sklearn import datasets
-iris = datasets.load_iris();
+iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
