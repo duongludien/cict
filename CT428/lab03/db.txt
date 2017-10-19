@@ -1,4 +1,4 @@
--- DB host : localhost
+-- DB host : 172.30.35.70
 -- DB name : db_s6
 -- User	   : user_s6
 -- Password: puser_s6
@@ -8,23 +8,23 @@ USE db_s6;
 -- create table:
 
 CREATE TABLE dinh_dien_donvi (
-	madv int(3) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
-	donvi varchar(30) NOT NULL
+madv int(3) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
+donvi varchar(30) NOT NULL
 );
 
 CREATE TABLE dinh_dien_chucvu (
-	macv int(3) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
-	chucvu varchar(30) NOT NULL
+macv int(3) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
+chucvu varchar(30) NOT NULL
 );
 
 CREATE TABLE dinh_dien_nhanvien (
-	manv int(5) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
-	hoten varchar(30) NOT NULL,
-	namsinh date,
-	gioitinh varchar(3),
-	madv int(3) UNSIGNED ZEROFILL REFERENCES dinh_dien_donvi(madv),
-	macv int(3) UNSIGNED ZEROFILL REFERENCES dinh_dien_chucvu(macv),
-	luong int check(luong > 1000)
+manv int(5) UNSIGNED ZEROFILL auto_increment PRIMARY KEY,
+hoten varchar(30) NOT NULL,
+namsinh date,
+gioitinh varchar(3),
+madv int(3) UNSIGNED ZEROFILL REFERENCES dinh_dien_donvi(madv),
+macv int(3) UNSIGNED ZEROFILL REFERENCES dinh_dien_chucvu(macv),
+luong int check(luong > 1000)
 );
 
 
@@ -43,13 +43,14 @@ INSERT INTO dinh_dien_donvi VALUES (003, 'Phong Nhan Su');
 INSERT INTO dinh_dien_donvi VALUES (004, 'Phong Hanh Chanh');
 INSERT INTO dinh_dien_donvi VALUES (005, 'Phong Ky Thuat');
 
-INSERT INTO dinh_dien_nhanvien VALUES (00001, 'Nguyen Thanh Binh', '1979-07-25', 'Nam', 001, 001, 3200);
-INSERT INTO dinh_dien_nhanvien VALUES (00002, 'Tran Trung Tinh', '1982-05-10', 'Nu', 004, 004, 1600);
-INSERT INTO dinh_dien_nhanvien VALUES (00003, 'Phan Xuan Trang', '1982-08-07', 'Nu', 004, 006, 1200);
-INSERT INTO dinh_dien_nhanvien VALUES (00005, 'Lam Thuc Hoa', '1976-09-15', 'Nu', 003, 006, 1200);
-INSERT INTO dinh_dien_nhanvien VALUES (00006, 'Luu Hy Phung', '1975-05-18', 'Nu', 002, 002, 3200);
-INSERT INTO dinh_dien_nhanvien VALUES (00007, 'Nguyen Manh Hung', '1967-09-21', 'Nam', 002, 006, 1200);
-INSERT INTO dinh_dien_nhanvien VALUES (00008, 'Nguyen An Phuoc', '1977-06-02', 'Nam', 005, 006, 1200);
-INSERT INTO dinh_dien_nhanvien VALUES (00009, 'Tran Thanh Tung', '1978-07-28', 'Nam', 005, 006, 1200);
-INSERT INTO dinh_dien_nhanvien VALUES (00010, 'Nguyen Xuan Huy', '1984-09-23', 'Nam', 005, 006, 1200);
-INSERT INTO dinh_dien_nhanvien VALUES (00011, 'Le Kieu', '1993-09-23', 'Nu', 001, 001, 9000);
+INSERT INTO dinh_dien_nhanvien VALUES (00003, 'Nguyen Thanh Binh', '1979-07-25', 'Nam', 001, 001, 3200);
+INSERT INTO dinh_dien_nhanvien VALUES (00004, 'Tran Trung Tinh', '1982-05-10', 'Nu', 004, 004, 1600);
+INSERT INTO dinh_dien_nhanvien VALUES (00005, 'Phan Xuan Trang', '1982-08-07', 'Nu', 004, 006, 1200);
+INSERT INTO dinh_dien_nhanvien VALUES (00006, 'Bui Minh Quan', '1980-10-20', 'Nam', 003, 003, 2200);
+INSERT INTO dinh_dien_nhanvien VALUES (00007, 'Lam Thuc Hoa', '1976-09-15', 'Nu', 003, 006, 1200);
+INSERT INTO dinh_dien_nhanvien VALUES (00008, 'Luu Hy Phung', '1975-05-18', 'Nu', 002, 002, 3200);
+INSERT INTO dinh_dien_nhanvien VALUES (00009, 'Nguyen Manh Hung', '1967-09-21', 'Nam', 002, 006, 1200);
+INSERT INTO dinh_dien_nhanvien VALUES (00010, 'Nguyen An Phuoc', '1977-06-02', 'Nam', 005, 006, 1200);
+INSERT INTO dinh_dien_nhanvien VALUES (00011, 'Tran Thanh Tung', '1978-07-28', 'Nam', 005, 006, 1200);
+INSERT INTO dinh_dien_nhanvien VALUES (00012, 'Nguyen Xuan Huy', '1984-09-23', 'Nam', 005, 006, 1200);
+INSERT INTO dinh_dien_nhanvien VALUES (00013, 'Le Kieu', '1993-09-23', 'Nu', 001, 001, 9000);

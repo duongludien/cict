@@ -17,7 +17,7 @@
 <body>
 	<h1>Thực hành buổi 3</h1>
 	<ul>
-		<li><a href="themnhanvien.php">Bảng nhân viên</a></li>
+		<li><a href="nhanvien.php">Bảng nhân viên</a></li>
 		<li><a href="themchucvu.php">Bảng chức vụ</a></li>
 		<li><a href="themdonvi.php">Bảng đơn vị</a></li>
 	</ul>
