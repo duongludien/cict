@@ -6,11 +6,6 @@
 	<title>Thêm nhân viên</title>
 	<?php
 		include "dbconnect.php";
-		
-		$target_dir = "uploads/";
-		$target_file = $target_dir . basename($_FILES["avatar"]["name"]);
-		$uploadOk = 1;
-		$imageFileType = pathinfo($target_file, PATHINFO_EXTENSION);
 
 		if(isset($_POST['submit'])) {
 		    $image = addslashes(file_get_contents($_FILES['avatar']['tmp_name'])); //SQL Injection defence
