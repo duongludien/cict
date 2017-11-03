@@ -44,3 +44,7 @@
     </table>
 </body>
 </html>
+
+<?php
+	$conn->close();
+?>
