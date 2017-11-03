@@ -1,0 +1,7 @@
+create table maytinh (
+maso char(5) primary key,
+hinhanh mediumblob,
+mota varchar(30),
+ngaynhaphang date,
+giatien int,
+soluong int);
