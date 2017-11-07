@@ -1,3 +1,0 @@
-data.csv		====> Tập dữ liệu với 699 mẫu
-data_10.csv		====> Tập dữ liệu với 10 mẫu
-data_20.csv		====> Tập dữ liệu với 20 mẫu

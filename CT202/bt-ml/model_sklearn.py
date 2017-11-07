@@ -21,19 +21,24 @@ imputer = Imputer(missing_values = 'NaN', strategy = 'mean')
 imputer = imputer.fit(X)
 X = imputer.transform(X)
 
-for i in range(5):
+k = 5
+avg_accuracy = 0
+for i in range(k):
     # split data
     from sklearn.model_selection import train_test_split
     X_train, X_test, y_train, y_test = train_test_split(X, y, shuffle=True, test_size=1/3)
     
     # train
     from sklearn.linear_model import Perceptron
-    nn = Perceptron(max_iter=10000, eta0=0.01)
+    nn = Perceptron(max_iter=10, eta0=0.1)
     nn.fit(X_train, y_train)
     actualValue = y_test
     predictedValue = nn.predict(X_test)
     from sklearn.metrics import confusion_matrix, accuracy_score
     matrix = confusion_matrix(actualValue, predictedValue)
     accuracy = accuracy_score(actualValue, predictedValue)
+    avg_accuracy += accuracy
     print(matrix)
-    print('accuracy =', accuracy * 100, "%")
+    print('accuracy =', accuracy)
+
+print('average accuracy is', avg_accuracy / k)
