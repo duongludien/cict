@@ -1,5 +1,5 @@
 # cict
-All source code which I wrote when I was a student in Can Tho University.
+Source code for subjects in College of ICT, Can Tho University.
 <ol>
 <li>CT103 - Data Structures (Lecturer: Truong Minh Thai)</li>
 <li>CT174 - Algorithms Analysis and Design (Lecturer: Nguyen Van Linh)</li>
